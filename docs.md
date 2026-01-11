@@ -8,10 +8,12 @@ This static website uses the following CDN resources:
 - **Version**: 3.4.21
 - **CDN URL**: https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js
 - **Purpose**: Progressive JavaScript framework for building interactive user interfaces
+- **Security**: Includes SRI integrity check for secure CDN loading
 
 ### Tailwind CSS (Utility-First CSS)
 - **CDN URL**: https://cdn.tailwindcss.com
 - **Purpose**: Utility-first CSS framework for rapid UI development
+- **Security**: Includes crossorigin attribute for secure CDN loading
 
 ## Project Structure
 
