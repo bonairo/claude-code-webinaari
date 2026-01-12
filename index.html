@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code Webinaari</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com" crossorigin="anonymous"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <div id="app">
+        <div class="container mx-auto px-4 py-8">
+            <header class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ title }}</h1>
+                <p class="text-lg text-gray-600">{{ description }}</p>
+            </header>
+            
+            <main class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Welcome</h2>
+                    <p class="text-gray-600 mb-4">
+                        This is a static website powered by Vue.js and Tailwind CSS.
+                    </p>
+                    
+                    <div class="flex gap-4 mb-4">
+                        <input 
+                            v-model="newItem" 
+                            @keyup.enter="addItem"
+                            type="text" 
+                            placeholder="Add an item..."
+                            class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                        <button 
+                            @click="addItem"
+                            class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                        >
+                            Add
+                        </button>
+                    </div>
+                    
+                    <ul v-if="items.length > 0" class="space-y-2">
+                        <li 
+                            v-for="(item, index) in items" 
+                            :key="index"
+                            class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                        >
+                            <span class="text-gray-700">{{ item }}</span>
+                            <button 
+                                @click="removeItem(index)"
+                                class="text-red-500 hover:text-red-700 transition-colors"
+                            >
+                                Remove
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <p v-else class="text-gray-500 text-center py-4">
+                        No items yet. Add one above!
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Statistics</h3>
+                    <p class="text-gray-600">
+                        Total items: <span class="font-bold text-blue-600">{{ items.length }}</span>
+                    </p>
+                </div>
+            </main>
+            
+            <footer class="text-center mt-12 text-gray-500">
+                <p>&copy; 2026 Claude Code Webinaari. Built with Vue.js and Tailwind CSS.</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Vue.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js" integrity="sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb" crossorigin="anonymous"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="scripts.js"></script>
+</body>
+</html>
